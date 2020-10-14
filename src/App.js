@@ -1,24 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Home from './component/Home/Home';
+import Product from './component/Product/Product';
+import ProductDetails from './component/ProductDetails/ProductDetails';
+import Shipment from './component/Shipment/Shipment';
 
 function App() {
+      const appStyle = {
+        color: 'orange',
+        border: '1px solid orange',
+        padding: '30px',
+        margin: '30px'
+    }
+
+    const [count, setCount] = useState(0);
+
+    const increment = () => {
+      let newCount = count + 1;
+      setCount(newCount);
+    }
+    
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={appStyle}>
+      <h1>This is App.js: {count}</h1>
+      <button onClick={increment}>Increase</button>
+      <Home count={count}></Home>
+      
+      
+      
+
     </div>
   );
 }
